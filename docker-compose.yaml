@@ -1,0 +1,13 @@
+version: '3'
+networks:
+  D:\Projects\Go\learn-beego_network_compose:
+    driver: bridge 
+services:
+  D:\Projects\Go\learn-beego:
+    container_name: D:\Projects\Go\learn-beego
+    build: .
+    restart: unless-stopped
+    networks:
+      D:\Projects\Go\learn-beego_network_compose:
+    ports:
+    - "8080:8080"
