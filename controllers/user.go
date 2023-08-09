@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"encoding/json"
-	"learn-beego/models"
 
 	"github.com/beego/beego/v2/server/web"
+	"github.com/stevan-iskandar/learn-beego/models"
 )
 
 // Operations about Users

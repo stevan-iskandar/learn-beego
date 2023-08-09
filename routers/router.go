@@ -1,20 +1,21 @@
-// @APIVersion 1.0.0
-// @Title beego Test API
-// @Description beego has a very cool tools to autogenerate documents for your API
-// @Contact astaxie@gmail.com
-// @TermsOfServiceUrl http://beego.me/
-// @License Apache 2.0
-// @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
 package routers
 
 import (
-	"learn-beego/controllers"
-
 	"github.com/beego/beego/v2/server/web"
+	"github.com/beego/beego/v2/server/web/context"
+	"github.com/stevan-iskandar/learn-beego/controllers"
 )
 
 func init() {
-	ns := web.NewNamespace("/v1",
+	web.Get("/hello", func(ctx *context.Context) {
+		ctx.WriteString("hello, world")
+	})
+	ns := web.NewNamespace("/api",
+		web.NSNamespace("/book",
+			web.NSInclude(
+				&controllers.BookController{},
+			),
+		),
 		web.NSNamespace("/object",
 			web.NSInclude(
 				&controllers.ObjectController{},
