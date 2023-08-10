@@ -10,7 +10,7 @@ type Orm struct {
 	CreatedORM orm.Ormer
 }
 
-func InitDB() {
+func init() {
 	sqlconn, _ := web.AppConfig.String("sqlconn")
 	orm.RegisterDriver("postgres", orm.DRPostgres)
 	orm.RegisterDataBase("default", "postgres", sqlconn)
